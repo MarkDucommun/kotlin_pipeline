@@ -1,0 +1,32 @@
+task composeCI(type: Exec) {
+
+    group 'Docker'
+
+    description 'Stand up CI pipeline and artifact store'
+
+    workingDir 'ci'
+
+    commandLine 'docker-compose', 'up', '-d'
+}
+
+task composeCIStatus(type: Exec) {
+
+    group 'Docker'
+
+    description 'Summarize CI pipeline and artifact store'
+
+    workingDir 'ci'
+
+    commandLine 'docker-compose', 'ps'
+}
+
+task composeDownCI(type: Exec) {
+
+    group 'Docker'
+
+    description 'Drop CI pipeline and artifact store'
+
+    workingDir 'ci'
+
+    commandLine 'docker-compose', 'down'
+}
